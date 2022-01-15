@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </header>
+<header>
+    <h1><a href="/">Django Boys Blog</a></h1>
+</header>
 
-        <article>
-            <time>published: 15.01.2022, 14:39</time>
-            <h2><a href="">My first post</a></h2>
-            <p>A brilliant header, clean sidebar, and minimalist footer can go a long way towards making a blog look good. But the one area that’s often overlooked in blog design is the post styling.
-
-Here are 15 blog post areas that need styling and 30 great examples for you to draw inspiration from.</p>
-        </article>
-
-        <article>
-            <time>published: 15.01.2022, 14:39</time>
-            <h2><a href="">My second post</a></h2>
-            <p>One of the best ways to do this is by analyzing existing blog posts and identify what makes them so successful in terms of organic traffic volume.
-
-                We’ve selected three high-performing blog post samples (in terms of monthly organic traffic): a listicle, a “how-to” guide, and a checklist. We chose these formats as they are popular with most audiences and usually lend themselves well to effectively solving user queries.</p>
-                </article>
-    </body>
-</html>
+{% for post in posts %}
+    <article>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
